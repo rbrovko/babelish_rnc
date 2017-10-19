@@ -179,7 +179,8 @@ module Babelish
       if content && content.size > 0
         content.each do |key, value|
           comment = @comments[key]
-          output += get_row_format(key, value, comment, indentation - key.length)
+          defaultlang  = @languages[1].content[key]
+          output += get_row_format(key, value, comment, indentation - key.length, defaultlang)
         end
       end
       return output

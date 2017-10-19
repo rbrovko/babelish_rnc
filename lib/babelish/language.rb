@@ -21,5 +21,10 @@ module Babelish
     def region
       @regions.first
     end
+    
+    def content_for_key(key)
+      return @content[:key]
+    end
+    
   end
 end
