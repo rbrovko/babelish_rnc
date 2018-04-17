@@ -3,7 +3,7 @@ class TestCSV2Strings < Test::Unit::TestCase
 
   def test_converting_csv_to_dotstrings
     csv_file = "test/data/test_data.csv"
-    converter = Babelish::CSV2Strings.new(csv_file, 'English' => [:en])
+    converter = BabelishRnc::CSV2Strings.new(csv_file, 'English' => [:en])
     converter.convert
     assert File.exist?("en.lproj/Localizable.strings"), "the ouptut file does not exist"
     system("rm -rf en.lproj/")
@@ -12,7 +12,7 @@ class TestCSV2Strings < Test::Unit::TestCase
   def test_converting_csv_to_dotstrings_one_output_option
     csv_file = "test/data/test_data.csv"
     single_file = 'myApp.strings'
-    converter = Babelish::CSV2Strings.new(csv_file,
+    converter = BabelishRnc::CSV2Strings.new(csv_file,
     {'English' => [:en]},
     :output_basename => 'myApp',
     :ignore_lang_path => true)
@@ -28,7 +28,7 @@ class TestCSV2Strings < Test::Unit::TestCase
     EOS
     csv_file = "test/data/test_data_multiple_langs.csv"
     spanish_file = "es.lproj/Localizable.strings"
-    converter = Babelish::CSV2Strings.new(csv_file,
+    converter = BabelishRnc::CSV2Strings.new(csv_file,
     {'English' => [:en], "French" => "fr", "German" => "de", "Spanish" => "es"},
     :default_lang => "English")
     converter.convert
@@ -45,7 +45,7 @@ class TestCSV2Strings < Test::Unit::TestCase
     EOS
     csv_file = "test/data/test_data_multiple_langs.csv"
     spanish_file = "es.lproj/Localizable.strings"
-    converter = Babelish::CSV2Strings.new(csv_file,
+    converter = BabelishRnc::CSV2Strings.new(csv_file,
     {'English' => [:en], "French" => "fr", "German" => "de", "Spanish" => "es"})
     converter.convert
     assert File.exist?(spanish_file), "the ouptut file does not exist"
@@ -61,7 +61,7 @@ class TestCSV2Strings < Test::Unit::TestCase
     EOS
     csv_file = "test/data/test_data_multiple_langs.csv"
     spanish_file = "es.lproj/Localizable.strings"
-    converter = Babelish::CSV2Strings.new(csv_file,
+    converter = BabelishRnc::CSV2Strings.new(csv_file,
     {'English' => [:en], "French" => "fr", "German" => "de", "Spanish" => "es"},
     :default_lang => "variables")
     converter.convert
@@ -77,7 +77,7 @@ class TestCSV2Strings < Test::Unit::TestCase
 "ANOTHER_STRING" = "ANOTHER_STRING";
     EOS
     csv_file = "test/data/test_data_multiple_langs.csv"
-    converter = Babelish::CSV2Strings.new(csv_file,
+    converter = BabelishRnc::CSV2Strings.new(csv_file,
     {'English' => [:en], "French" => "fr", "German" => "de", "Spanish" => "es"},
     :default_lang => "variables")
     converter.convert
@@ -91,7 +91,7 @@ class TestCSV2Strings < Test::Unit::TestCase
 "ANOTHER_STRING" = "hello";
     EOS
     csv_file = "test/data/test_data_with_percent.csv"
-    converter = Babelish::CSV2Strings.new(csv_file, "English" => [:en])
+    converter = BabelishRnc::CSV2Strings.new(csv_file, "English" => [:en])
     converter.convert
     result = File.read("en.lproj/Localizable.strings")
     assert_equal expected_output, result
@@ -104,7 +104,7 @@ class TestCSV2Strings < Test::Unit::TestCase
 "ANOTHER_STRING" = " my other string with space at begin";
     EOS
     csv_file = "test/data/test_data_with_spaces.csv"
-    converter = Babelish::CSV2Strings.new(csv_file, "English" => [:en])
+    converter = BabelishRnc::CSV2Strings.new(csv_file, "English" => [:en])
     converter.convert
     result = File.read("en.lproj/Localizable.strings")
     assert_equal expected_output, result
@@ -118,7 +118,7 @@ class TestCSV2Strings < Test::Unit::TestCase
 "ANOTHER_EXAMPLE" = "tu as fait 10% d'efforts";
     EOS
     csv_file = "test/data/test_data_with_percent_space.csv"
-    converter = Babelish::CSV2Strings.new(csv_file, "English" => [:en])
+    converter = BabelishRnc::CSV2Strings.new(csv_file, "English" => [:en])
     converter.convert
     result = File.read("en.lproj/Localizable.strings")
     assert_equal expected_output, result
@@ -131,7 +131,7 @@ class TestCSV2Strings < Test::Unit::TestCase
 "ANOTHER_STRING" = "my other string with space at begin";
     EOS
     csv_file = "test/data/test_data_with_spaces.csv"
-    converter = Babelish::CSV2Strings.new(csv_file, {"English" => [:en]}, :stripping => true)
+    converter = BabelishRnc::CSV2Strings.new(csv_file, {"English" => [:en]}, :stripping => true)
     converter.convert
     result = File.read("en.lproj/Localizable.strings")
     assert_equal expected_output, result
@@ -142,7 +142,7 @@ class TestCSV2Strings < Test::Unit::TestCase
     csv_file = "test/data/test_data_with_comments.csv"
     spanish_file = "fr.lproj/Localizable.strings"
     expected_output = File.read("test/data/test_data_fr_with_comments.strings")
-    converter = Babelish::CSV2Strings.new(csv_file,
+    converter = BabelishRnc::CSV2Strings.new(csv_file,
     {"French" => "fr"},
     :default_lang => "English", :comments_column => 5)
     converter.convert

@@ -3,7 +3,7 @@ class TestCSV2Php < Test::Unit::TestCase
 
   def test_converting_csv_to_dotstrings
     csv_file = "test/data/test_data.csv"
-    converter = Babelish::CSV2Php.new(csv_file, 'English' => "en")
+    converter = BabelishRnc::CSV2Php.new(csv_file, 'English' => "en")
     converter.convert
     assert File.exist?("en/lang.php"), "the ouptut file does not exist"
 
@@ -14,7 +14,7 @@ class TestCSV2Php < Test::Unit::TestCase
   def test_converting_csv_to_dotstrings_one_output_option
     csv_file = "test/data/test_data.csv"
     single_file = 'myApp.php'
-    converter = Babelish::CSV2Php.new(csv_file,
+    converter = BabelishRnc::CSV2Php.new(csv_file,
     {'English' => "en"},
     :output_basename => 'myApp',
     :ignore_lang_path => true)

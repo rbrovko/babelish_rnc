@@ -4,7 +4,7 @@ class TestBins < Test::Unit::TestCase
   def test_csv2strings_with_google_doc
     omit if ENV['TRAVIS']
     assert_nothing_raised do
-      system("./bin/babelish csv2strings --fetch --filename my_strings --langs English:en")
+      system("./bin/babelish_rnc csv2strings --fetch --filename my_strings --langs English:en")
     end
     assert_equal 0, $?.exitstatus
   end
@@ -12,7 +12,7 @@ class TestBins < Test::Unit::TestCase
   def test_csv2strings_with_google_doc_missing_langs
     omit if ENV['TRAVIS']
     assert_nothing_raised do
-      system("./bin/babelish csv2strings --fetch --filename my_strings")
+      system("./bin/babelish_rnc csv2strings --fetch --filename my_strings")
     end
     assert_equal 1, $?.exitstatus
   end
@@ -21,7 +21,7 @@ class TestBins < Test::Unit::TestCase
     system("cp .babelish.sample .babelish")
 
     assert_nothing_raised NameError do
-      system("./bin/babelish csv2strings")
+      system("./bin/babelish_rnc csv2strings")
     end
     assert_equal 0, $?.exitstatus
   end

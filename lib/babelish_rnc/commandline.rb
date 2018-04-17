@@ -87,7 +87,7 @@ class Commandline < Thor
       system "open \"#{filename}\""
     else
       say "Opening Google Drive file '#{filename}'"
-      gd = Babelish::GoogleDoc.new
+      gd = BabelishRnc::GoogleDoc.new
       gd.open filename.to_s
     end
   end
@@ -110,13 +110,13 @@ class Commandline < Thor
 
   desc "version", "Display current version"
   def version
-    require "babelish/version"
-    say "Babelish #{Babelish::VERSION}"
+    require "babelish_rnc/version"
+    say "babelish_rnc #{BabelishRnc::VERSION}"
   end
 
   no_tasks do
     def download(filename, output_filename = nil, worksheet_index = nil)
-      gd = Babelish::GoogleDoc.new
+      gd = BabelishRnc::GoogleDoc.new
       if output_filename || worksheet_index
         file_path = gd.download_spreadsheet filename.to_s, output_filename, worksheet_index
         files = [file_path].compact
@@ -146,13 +146,13 @@ class Commandline < Thor
       args.delete(:langs)
       args.delete(:filename)
 
-      xcode_macros = Babelish::XcodeMacros.new if options[:macros_filename]
+      xcode_macros = BabelishRnc::XcodeMacros.new if options[:macros_filename]
       files.each_with_index do |filename, index|
         if options[:output_basenames]
           args[:output_basename] = options[:output_basenames][index]
         end
 
-        class_object = eval "Babelish::#{classname}"
+        class_object = eval "BabelishRnc::#{classname}"
         args = Thor::CoreExt::HashWithIndifferentAccess.new(args)
         converter = class_object.new(filename, options[:langs], args)
         say converter.convert
@@ -165,7 +165,7 @@ class Commandline < Thor
     end
 
     def base2csv(classname)
-      class_object = eval "Babelish::#{classname}"
+      class_object = eval "BabelishRnc::#{classname}"
       converter = class_object.new(options)
 
       debug_values = converter.convert(!options[:dryrun])

@@ -29,3 +29,6 @@ Gemfile.lock
 
 doc
 .yardoc
+
+
+.DS_Store

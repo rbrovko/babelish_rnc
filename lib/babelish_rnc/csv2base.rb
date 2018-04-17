@@ -1,5 +1,5 @@
 require 'pathname'
-module Babelish
+module BabelishRnc
   class Csv2Base
     attr_accessor :output_dir, :output_basename
     attr_accessor :ignore_lang_path

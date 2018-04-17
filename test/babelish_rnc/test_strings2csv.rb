@@ -7,7 +7,7 @@ class TestStrings2CSV < Test::Unit::TestCase
     EOS
     expected_output = ["MY_CONSTANT","This is ok"]
 
-    output = Babelish::Strings2CSV.new.parse_dotstrings_line input
+    output = BabelishRnc::Strings2CSV.new.parse_dotstrings_line input
     assert_equal expected_output, output
   end
 
@@ -17,7 +17,7 @@ class TestStrings2CSV < Test::Unit::TestCase
     EOS
     expected_output = ["MY_CONSTANT","This 'is' ok"]
 
-    output = Babelish::Strings2CSV.new.parse_dotstrings_line input
+    output = BabelishRnc::Strings2CSV.new.parse_dotstrings_line input
     assert_equal expected_output, output
   end
 
@@ -27,7 +27,7 @@ class TestStrings2CSV < Test::Unit::TestCase
     EOS
     expected_output = ["MY_CONSTANT","This \"is\" ok"]
 
-    output = Babelish::Strings2CSV.new.parse_dotstrings_line input
+    output = BabelishRnc::Strings2CSV.new.parse_dotstrings_line input
     assert_equal expected_output, output
   end
 
@@ -36,7 +36,7 @@ class TestStrings2CSV < Test::Unit::TestCase
     "MY_CONSTANT" = "wrong syntax"
     EOS
 
-    output = Babelish::Strings2CSV.new.parse_dotstrings_line input
+    output = BabelishRnc::Strings2CSV.new.parse_dotstrings_line input
     assert_nil output, "output should be nil with wrong syntax"
   end
 
@@ -45,25 +45,25 @@ class TestStrings2CSV < Test::Unit::TestCase
     /* Class = "IBUIButton"; normalTitle = "Wibble"; ObjectID = "xxx-xx-123"; */
     EOS
 
-    output = Babelish::Strings2CSV.new.parse_dotstrings_line input
+    output = BabelishRnc::Strings2CSV.new.parse_dotstrings_line input
     assert_nil output, "output should be nil with comment"
   end
 
   def test_parse_comment
     comment= "/* this is a comment */"
-    output = Babelish::Strings2CSV.new.parse_comment_line comment
+    output = BabelishRnc::Strings2CSV.new.parse_comment_line comment
     assert_equal "this is a comment", output
   end
 
   def test_load_strings_with_wrong_file
     assert_raise(Errno::ENOENT) do
-      output = Babelish::Strings2CSV.new.load_strings "file that does not exist.strings"
+      output = BabelishRnc::Strings2CSV.new.load_strings "file that does not exist.strings"
     end
   end
 
   def test_load_strings
     expected_output = [{"ERROR_HANDLER_WARNING_DISMISS" => "OK", "ANOTHER_STRING" => "hello"}, {}]
-    output = Babelish::Strings2CSV.new.load_strings "test/data/test_data.strings"
+    output = BabelishRnc::Strings2CSV.new.load_strings "test/data/test_data.strings"
     assert_equal expected_output, output
   end
 
@@ -75,7 +75,7 @@ class TestStrings2CSV < Test::Unit::TestCase
                          "name4" => "definition4",
                          "this is a name" => "a definition"
                       }, {}]
-    output = Babelish::Strings2CSV.new.load_strings "test/data/test_space.strings"
+    output = BabelishRnc::Strings2CSV.new.load_strings "test/data/test_space.strings"
     assert_equal expected_output, output
   end
 

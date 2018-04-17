@@ -1,4 +1,4 @@
-module Babelish
+module BabelishRnc
   class Php2CSV < Base2Csv
 
     def initialize(args = {:filenames => []})

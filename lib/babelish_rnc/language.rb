@@ -1,4 +1,4 @@
-module Babelish
+module BabelishRnc
   class Language
     attr_accessor :name, :content, :code, :regions
 

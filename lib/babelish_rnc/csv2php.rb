@@ -1,4 +1,4 @@
-module Babelish
+module BabelishRnc
   class CSV2Php < Csv2Base
     attr_accessor :php_tag
 

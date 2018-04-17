@@ -6,7 +6,7 @@ class TestCsv2Base < Test::Unit::TestCase
     excluded_states = ["German"]
     state_column = "Local"
     keys_column = 23
-    converter = Babelish::Csv2Base.new(csv_filename, {"English" => ["en"]}, {
+    converter = BabelishRnc::Csv2Base.new(csv_filename, {"English" => ["en"]}, {
       :excluded_states => excluded_states,
       :state_column => state_column,
       :keys_column => keys_column })
@@ -18,18 +18,18 @@ class TestCsv2Base < Test::Unit::TestCase
   end
 
   def test_initialize_with_default_values
-    converter = Babelish::Csv2Base.new("file.csv", "English" => ["en"])
+    converter = BabelishRnc::Csv2Base.new("file.csv", "English" => ["en"])
     assert_not_nil converter.csv_filename
   end
 
   def test_initialize_with_custom_separator
-    converter = Babelish::Csv2Base.new("file.csv", { "English" => ["en"] }, { :csv_separator => ";" })
+    converter = BabelishRnc::Csv2Base.new("file.csv", { "English" => ["en"] }, { :csv_separator => ";" })
     assert_not_nil converter.csv_filename
   end
 
   def test_create_file_from_path
     test_file = "test_file.txt"
-    Babelish::Csv2Base.new("file.csv", "English" => ["en"]).create_file_from_path test_file
+    BabelishRnc::Csv2Base.new("file.csv", "English" => ["en"]).create_file_from_path test_file
     assert File.exist?(test_file)
 
     # clean up
@@ -38,7 +38,7 @@ class TestCsv2Base < Test::Unit::TestCase
 
   def test_get_row_format
     expected_output = "\"test_key\" = \"test_value\""
-    output = Babelish::Csv2Base.new("file.csv", "English" => ["en"]).get_row_format("test_key", "test_value")
+    output = BabelishRnc::Csv2Base.new("file.csv", "English" => ["en"]).get_row_format("test_key", "test_value")
     assert_equal expected_output, output
   end
 end

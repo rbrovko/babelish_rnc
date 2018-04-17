@@ -1,4 +1,4 @@
-module Babelish
+module BabelishRnc
   class CSV2Android < Csv2Base
     attr_accessor :file_path
 

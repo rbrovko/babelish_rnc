@@ -1,4 +1,4 @@
-module Babelish
+module BabelishRnc
   class CSV2Strings < Csv2Base
     attr_accessor :languages
 

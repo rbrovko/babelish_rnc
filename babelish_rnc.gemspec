@@ -1,10 +1,11 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'babelish_rnc/version'
 
 Gem::Specification.new do |s|
-  s.name        = 'babelishX'
-  s.version     = '1.0.1'
+  s.name        = 'babelish_rnc'
+  s.version     = BabelishRnc::VERSION
   s.date        = Time.now.strftime("%Y-%m-%d")
   s.summary     = "CSV converter for localization files"
   s.description = "This set of commands converts a CSV file to the following formats:
@@ -14,7 +15,7 @@ Gem::Specification.new do |s|
                   - .php"
   s.authors     = ["François Benaiteau", "Markus Paeschke"]
   s.email       = ['francois.benaiteau@gmail.com', 'markus.paeschke@gmail.com']
-  s.homepage    = 'http://netbe.github.io/Babelish/'
+  s.homepage    = 'https://github.com/rbrovko/babelish_rnc'
   s.license = 'MIT'
 
   s.add_dependency "thor"

@@ -1,4 +1,4 @@
-module Babelish
+module BabelishRnc
   require 'json'
   class JSON2CSV < Base2Csv
 

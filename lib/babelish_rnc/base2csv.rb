@@ -1,4 +1,4 @@
-module Babelish
+module BabelishRnc
   class Base2Csv
     attr_accessor :csv_filename, :headers, :filenames, :default_lang
 

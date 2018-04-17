@@ -7,7 +7,7 @@ class TestPhp2CSV < Test::Unit::TestCase
     EOS
     expected_output = {"MY_CONSTANT" => "This is ok"}
 
-    output = Babelish::Php2CSV.new.parse_dotstrings_line input
+    output = BabelishRnc::Php2CSV.new.parse_dotstrings_line input
     assert_equal output, expected_output
   end
 
@@ -17,7 +17,7 @@ class TestPhp2CSV < Test::Unit::TestCase
     EOS
     expected_output = {"MY_CONSTANT" => "This 'is' ok"}
 
-    output = Babelish::Php2CSV.new.parse_dotstrings_line input
+    output = BabelishRnc::Php2CSV.new.parse_dotstrings_line input
     assert_equal output, expected_output
   end
 
@@ -27,7 +27,7 @@ class TestPhp2CSV < Test::Unit::TestCase
     EOS
     expected_output = {"MY_CONSTANT" => "This \"is\" ok"}
 
-    output = Babelish::Php2CSV.new.parse_dotstrings_line input
+    output = BabelishRnc::Php2CSV.new.parse_dotstrings_line input
     assert_equal output, expected_output
   end
 
@@ -36,19 +36,19 @@ class TestPhp2CSV < Test::Unit::TestCase
     $lang['MY_CONSTANT'] = "wrong syntax"
     EOS
 
-    output = Babelish::Php2CSV.new.parse_dotstrings_line input
+    output = BabelishRnc::Php2CSV.new.parse_dotstrings_line input
     assert_nil output, "output should be nil with wrong syntax"
   end
 
   def test_load_strings_with_wrong_file
     assert_raise(Errno::ENOENT) do
-      output = Babelish::Php2CSV.new.load_strings "file that does not exist.strings"
+      output = BabelishRnc::Php2CSV.new.load_strings "file that does not exist.strings"
     end
   end
 
   def test_load_strings
     expected_output = {"app_name" => "php2csv", "action_greetings" => "Hello", "ANOTHER_STRING" => "testEN", "empty" => ""}
-    output = Babelish::Php2CSV.new.load_strings "test/data/php_lang.php"
+    output = BabelishRnc::Php2CSV.new.load_strings "test/data/php_lang.php"
     assert_equal expected_output, output
   end
 
@@ -56,7 +56,7 @@ class TestPhp2CSV < Test::Unit::TestCase
     csv_filename = "file.csv"
     filenames = %w{"french.php english.php"}
     headers = %w{"constants french english"}
-    converter = Babelish::Php2CSV.new({
+    converter = BabelishRnc::Php2CSV.new({
       :csv_filename => csv_filename,
       :headers => headers,
       :filenames => filenames })
@@ -67,7 +67,7 @@ class TestPhp2CSV < Test::Unit::TestCase
   end
 
   def test_initialize_with_default_values
-    converter = Babelish::Php2CSV.new
+    converter = BabelishRnc::Php2CSV.new
     assert_not_nil converter.csv_filename
   end
 end
