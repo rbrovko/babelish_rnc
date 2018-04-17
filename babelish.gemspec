@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |s|
   s.name        = 'babelishX'
-  s.version     = '1.0.0'
+  s.version     = '1.0.1'
   s.date        = Time.now.strftime("%Y-%m-%d")
   s.summary     = "CSV converter for localization files"
   s.description = "This set of commands converts a CSV file to the following formats:
@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "thor"
 
-  s.add_dependency "google_drive", "~> 1.0.1"
+  s.add_dependency "google_drive", "~> 2.1.7"
   s.add_dependency "nokogiri"
   # google_drive dependency to ask for mail and password
   s.add_dependency "highline"
