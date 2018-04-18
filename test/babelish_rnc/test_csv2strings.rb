@@ -41,7 +41,7 @@ class TestCSV2Strings < Test::Unit::TestCase
   def test_converting_csv_to_dotstrings_with_no_default_lang_is_empty
     expected_output = String.new(<<-EOS)
 "GREETINGS"      = "Buenos dias";
-"ANOTHER_STRING" = "";
+"ANOTHER_STRING" = "testEN";
     EOS
     csv_file = "test/data/test_data_multiple_langs.csv"
     spanish_file = "es.lproj/Localizable.strings"
