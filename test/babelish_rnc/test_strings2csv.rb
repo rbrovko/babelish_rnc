@@ -82,30 +82,30 @@ class TestStrings2CSV < Test::Unit::TestCase
   def test_load_strings_with_comments
     expected_output = [{"MY_CONSTANT"=>"This 'is' ok"}, {"MY_CONSTANT"=> "this is a comment"}]
 
-    output = Babelish::Strings2CSV.new.load_strings "test/data/test_comments.strings"
+    output = BabelishRnc::Strings2CSV.new.load_strings "test/data/test_comments.strings"
     assert_equal expected_output, output
   end
 
   def test_load_strings_with_empty_lines
     assert_nothing_raised do
-      output = Babelish::Strings2CSV.new.load_strings "test/data/test_with_nil.strings"
+      output = BabelishRnc::Strings2CSV.new.load_strings "test/data/test_with_nil.strings"
     end
   end
 
   def test_load_strings_with_empty_lines_and_comments
     assert_nothing_raised do
-      output = Babelish::Strings2CSV.new.load_strings "test/data/xcode_empty.strings"
+      output = BabelishRnc::Strings2CSV.new.load_strings "test/data/xcode_empty.strings"
     end
   end
 
   def test_load_strings_with_genstrings_file
     assert_nothing_raised do
-      output = Babelish::Strings2CSV.new.load_strings "test/data/genstrings.strings"
+      output = BabelishRnc::Strings2CSV.new.load_strings "test/data/genstrings.strings"
     end
   end
 
   def test_dotstrings_to_csv
-    converter = Babelish::Strings2CSV.new(:filenames => ["test/data/test_data.strings"])
+    converter = BabelishRnc::Strings2CSV.new(:filenames => ["test/data/test_data.strings"])
     keys, strings = converter.convert(false)
     assert_equal ["ERROR_HANDLER_WARNING_DISMISS", "ANOTHER_STRING"], keys
 
@@ -116,7 +116,7 @@ class TestStrings2CSV < Test::Unit::TestCase
     filename = "test_data"
     strings = {filename => {"ERROR_HANDLER_WARNING_DISMISS" => "OK", "ANOTHER_STRING" => "hello"}}
 
-    converter = Babelish::Strings2CSV.new(:headers => %w{variables english}, :filenames => [filename])
+    converter = BabelishRnc::Strings2CSV.new(:headers => %w{variables english}, :filenames => [filename])
 
     converter.send :create_csv_file, keys, strings
     assert File.exist?(converter.csv_filename)
@@ -129,7 +129,7 @@ class TestStrings2CSV < Test::Unit::TestCase
     csv_filename = "file.csv"
     filenames = %w{french.strings english.strings}
     headers = %w{constants french english}
-    converter = Babelish::Strings2CSV.new({
+    converter = BabelishRnc::Strings2CSV.new({
       :csv_filename => csv_filename,
       :headers => headers,
       :filenames => filenames })
@@ -140,7 +140,7 @@ class TestStrings2CSV < Test::Unit::TestCase
     end
 
   def test_initialize_with_default_values
-    converter = Babelish::Strings2CSV.new
+    converter = BabelishRnc::Strings2CSV.new
     assert_not_nil converter.csv_filename
   end
 

@@ -4,7 +4,7 @@
 
 ![Docker](http://dockeri.co/image/netbe/babelish)
 
-**Babelish : Chaotically confused, like Babel**
+**babelish_rnc : Chaotically confused, like Babel**
 
 Originally created to deal with localizedStrings files (aka *CSV-to-iOS-Localizable.strings-converter*), this command tool now converts a csv file of translations into the below file formats and vice-versa:
 * .strings (iOS)

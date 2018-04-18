@@ -12,6 +12,6 @@ end
 
 require 'test/unit'
 
-require 'babelish'
+require 'babelish_rnc'
 
-require "babelish/commandline"
+require "babelish_rnc/commandline"
