@@ -1,6 +1,6 @@
 [![Build Status](https://secure.travis-ci.org/netbe/Babelish.png?branch=master)](http://travis-ci.org/netbe/Babelish)
 [![Code Climate](https://codeclimate.com/github/netbe/Babelish.png)](https://codeclimate.com/github/netbe/Babelish)[![Coverage Status](https://coveralls.io/repos/netbe/Babelish/badge.png)](https://coveralls.io/r/netbe/Babelish)
-[![Gem Version](https://badge.fury.io/rb/babelish.svg)](http://badge.fury.io/rb/babelish_rnc)
+[![Gem Version](https://badge.fury.io/rb/babelish_rnc.svg)](http://badge.fury.io/rb/babelish_rnc)
 
 ![Docker](http://dockeri.co/image/netbe/babelish)
 
@@ -20,9 +20,9 @@ It can also fetch the csv file from GoogleDrive.
 
 Requires Ruby 2.0.0 or above.
 
-Or download [Latest Release](https://github.com/netbe/Babelish/releases/latest).
+Or download [Latest Release](https://github.com/rbrovko/babelish_rnc/releases/latest).
 
-Or via docker: `docker run netbe/Babelish babelish help`
+Or via docker: `docker run rbrovko/babelish_rnc babelish_rnc help`
 
 # Usage
 
@@ -57,11 +57,11 @@ See [.babelish.sample](.babelish.sample) file in the doc folder. as the possible
 
 **Note for docker:** In order to export the output of a conversion, you will need to pipe the result out of the container. An example would be
 ```
-› docker run netbe/Babelish babelish csv2json >> some_file.json
+› docker run rbrovko/babelish_rnc babelish_rnc csv2json >> some_file.json
 ```
 
 **For more details, check the documentation:**
-https://github.com/netbe/Babelish/wiki/How-to-Use
+https://github.com/rbrovko/babelish_rnc/wiki/How-to-Use
 
 
 ## Development
