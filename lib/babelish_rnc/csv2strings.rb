@@ -15,7 +15,7 @@ module BabelishRnc
       filepaths
     end
 
-    def get_row_format(row_key, row_value, comment = nil, indentation = 0, huy)
+    def get_row_format(row_key, row_value, comment = nil, indentation = 0, huy = "")
       entry = comment.to_s.empty? ? "" : "\n/* #{comment} */\n"
       
       row_value = row_value.to_s.empty? ? huy : row_value
