@@ -11,5 +11,5 @@ deploy:
   gem: babelish
   on:
     tags: true
-    repo: netbe/Babelish
+    repo: rbrovko/babelish_rnc
     all_branches: true
