@@ -32,3 +32,8 @@ doc
 
 
 .DS_Store
+
+# tests output files
+/en/
+myApp.php
+
