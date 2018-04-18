@@ -88,7 +88,7 @@ module BabelishRnc
       return value.to_utf8
     end
 
-    def get_row_format(row_key, row_value, comment = nil, indentation = 0)
+    def get_row_format(row_key, row_value, comment = nil, indentation = 0, defaultlang = "")
       # ignoring comment by default
       "\"#{row_key}\"" + " " * indentation + " = \"#{row_value}\""
     end

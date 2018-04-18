@@ -14,7 +14,7 @@ module BabelishRnc
       return filepath ? [filepath] : []
     end
 
-    def get_row_format(row_key, row_value, comment = nil, indentation = 0)
+    def get_row_format(row_key, row_value, comment = nil, indentation = 0, defaultlang = "")
       "$" + @php_tag + "['#{row_key}']" + " " * indentation + " = \"#{row_value}\";\n"
     end
 
