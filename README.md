@@ -3,7 +3,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/rbrovko/babelish_rnc/badge.svg?branch=master)](https://coveralls.io/github/rbrovko/babelish_rnc?branch=master)
 [![Gem Version](https://badge.fury.io/rb/babelish_rnc.svg)](http://badge.fury.io/rb/babelish_rnc)
 
-![Docker](http://dockeri.co/image/netbe/babelish)
+![Docker](http://dockeri.co/image/rbrovko/babelish_rnc)
 
 **babelish_rnc : Chaotically confused, like Babel**
 
