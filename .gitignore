@@ -33,6 +33,8 @@ doc
 
 .DS_Store
 
+/.bundle/
+
 # tests output files
 /en/
 myApp.php
