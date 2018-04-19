@@ -1,5 +1,6 @@
 [![Build Status](https://secure.travis-ci.org/rbrovko/babelish_rnc.png?branch=master)](http://travis-ci.org/rbrovko/babelish_rnc)
-[![Code Climate](https://codeclimate.com/github/rbrovko/babelish_rnc.png)](https://codeclimate.com/github/rbrovko/babelish_rnc)[![Coverage Status](https://coveralls.io/repos/rbrovko/babelish_rnc/badge.png)](https://coveralls.io/r/rbrovko/babelish_rnc)
+[![Code Climate](https://codeclimate.com/github/rbrovko/babelish_rnc.png)](https://codeclimate.com/github/rbrovko/babelish_rnc) 
+[![Coverage Status](https://coveralls.io/repos/rbrovko/babelish_rnc/badge.png)](https://coveralls.io/r/rbrovko/babelish_rnc) 
 [![Gem Version](https://badge.fury.io/rb/babelish_rnc.svg)](http://badge.fury.io/rb/babelish_rnc)
 
 ![Docker](http://dockeri.co/image/netbe/babelish)
